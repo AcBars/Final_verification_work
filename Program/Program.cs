@@ -11,3 +11,23 @@
 using static System.Console;
 
 Clear();
+Write("Введите колличество элементов массива: ");
+int ArrayLength=Convert.ToInt32(ReadLine());
+WriteLine("--------------------------------");
+WriteLine($"[{String.Join(", ", Array(ArrayLength))}]");
+
+
+
+string [] Array(int ArrayL)
+{
+    string [] Array=new string[ArrayL];
+    for(int i=0; i<ArrayL; i++)
+    {
+        Clear();
+        Write($"Введите {i} строку массива: ");
+        Array[i]=ReadLine();
+    }
+    return Array;
+}
+
+string [] 
