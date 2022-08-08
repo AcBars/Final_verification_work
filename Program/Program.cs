@@ -14,16 +14,16 @@ using static System.Console;
 Clear();
 Write("Введите колличество элементов массива: ");
 int ArrayLength=Convert.ToInt32(ReadLine());
-string [] Array = Array(ArrayLength);
+string [] Array = GetArray(ArrayLength);
 WriteLine($"[{String.Join(", ", Array)}]");
 WriteLine("--------------------------------");
-string [] NewArray= ThreeЕlements (Array)
-WriteLine($"[{String.Join(", ", Array(ArrayLength))}]");
+string [] NewArray= ThreeЕlements(Array);
+WriteLine($"[{String.Join(", ", NewArray)}]");
 
 
 
 
-string [] Array(int ArrayL)
+string [] GetArray(int ArrayL)
 {
     string [] Array=new string[ArrayL];
     for(int i=0; i<ArrayL; i++)
@@ -48,7 +48,11 @@ string [] ThreeЕlements (string [] Array)
     {
         for(int j=i; j<Array.Length; j++)
         {
-            if(Array[j].Length<=3) result[i]=Array[j];
+            if(Array[j].Length<=3) 
+            {
+                result[i]=Array[j];
+                i++;
+            }
         }
     }
     return result;
