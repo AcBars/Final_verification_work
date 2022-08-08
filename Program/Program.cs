@@ -1,4 +1,5 @@
-﻿/*
+﻿using System;
+/*
 Написать программу, которая из имеющегося массива строк формирует массив из строк,
 длина которых меньше либо равна 3 символа. Первоначальный массив можно ввести с клавиатуры, либо задать на старте вьmолнения алгоритма. При решении не рекомендуетеся пользоваться коллекциями, лучше обойтись исключительно массивами.
 Примеры:
@@ -13,8 +14,12 @@ using static System.Console;
 Clear();
 Write("Введите колличество элементов массива: ");
 int ArrayLength=Convert.ToInt32(ReadLine());
+string [] Array = Array(ArrayLength);
+WriteLine($"[{String.Join(", ", Array)}]");
 WriteLine("--------------------------------");
+string [] NewArray= ThreeЕlements (Array)
 WriteLine($"[{String.Join(", ", Array(ArrayLength))}]");
+
 
 
 
@@ -30,4 +35,21 @@ string [] Array(int ArrayL)
     return Array;
 }
 
-string [] 
+string [] ThreeЕlements (string [] Array)
+{
+    int count=0;
+    for(int i=0; i<Array.Length; i++)
+    {
+        int temp=Array[i].Length;
+        if(temp<=3) count++;
+    }
+    string [] result=new string[count];
+    for(int i=0; i<count; i++)
+    {
+        for(int j=i; j<Array.Length; j++)
+        {
+            if(Array[j].Length<=3) result[i]=Array[j];
+        }
+    }
+    return result;
+}
